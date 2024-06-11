@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class SimpleTextEditor extends JFrame {
-    private JTextArea textArea;
-    private JMenuBar menuBar;
-    private JMenu menu;
-    private JMenuItem menuItemNew, menuItemOpen, menuItemSave;
+    private final JTextArea textArea;
 
     public SimpleTextEditor() {
         // Создаем текстовую область
@@ -13,26 +10,27 @@ public class SimpleTextEditor extends JFrame {
         getContentPane().add(new JScrollPane(textArea));
 
         // Создаем строку меню
-        menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
 
         // Добавляем меню "Файл"
-        menu = new JMenu("Файл");
+        JMenu menu = new JMenu("Файл");
         menuBar.add(menu);
 
         // Добавляем пункты меню
-        menuItemNew = new JMenuItem("Новый");
+        JMenuItem menuItemNew = new JMenuItem("Новый");
         menuItemNew.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText("");
             }
-        });
+        }
+        );
         menu.add(menuItemNew);
 
-        menuItemOpen = new JMenuItem("Открыть");
+        JMenuItem menuItemOpen = new JMenuItem("Открыть");
         // Здесь можно добавить обработчик для открытия файла
         menu.add(menuItemOpen);
 
-        menuItemSave = new JMenuItem("Сохранить");
+        JMenuItem menuItemSave = new JMenuItem("Сохранить");
         // Здесь можно добавить обработчик для сохранения файла
         menu.add(menuItemSave);
 
@@ -50,6 +48,7 @@ public class SimpleTextEditor extends JFrame {
             public void run() {
                 new SimpleTextEditor().setVisible(true);
             }
-        });
+        }
+        );
     }
 }

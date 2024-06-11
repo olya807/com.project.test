@@ -4,10 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class MandelbrotSet extends JFrame {
 
-    private final int MAX_ITER = 570;
-    private final double ZOOM = 150;
-    private BufferedImage I;
-    private double zx, zy, cX, cY, tmp;
+    private final BufferedImage I;
 
     public MandelbrotSet() {
         super("Множество Мандельброта");
@@ -17,12 +14,14 @@ public class MandelbrotSet extends JFrame {
         I = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
         for (int y = 0; y < getHeight(); y++) {
             for (int x = 0; x < getWidth(); x++) {
-                zx = zy = 0;
-                cX = (x - 400) / ZOOM;
-                cY = (y - 300) / ZOOM;
-                int iter = MAX_ITER;
+                double zy;
+                double zx = zy = 0;
+                double ZOOM = 150;
+                double cX = (x - 400) / ZOOM;
+                double cY = (y - 300) / ZOOM;
+                int iter = 570;
                 while (zx * zx + zy * zy < 4 && iter > 0) {
-                    tmp = zx * zx - zy * zy + cX;
+                    double tmp = zx * zx - zy * zy + cX;
                     zy = 2.0 * zx * zy + cY;
                     zx = tmp;
                     iter--;
