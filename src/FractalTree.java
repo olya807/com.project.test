@@ -4,7 +4,6 @@ import java.awt.*;
 public class FractalTree extends JPanel {
     private final int WIDTH = 800;
     private final int HEIGHT = 600;
-    private final double ANGLE_STEP = Math.PI / 6;
 
     public FractalTree() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -16,6 +15,7 @@ public class FractalTree extends JPanel {
         int x2 = x1 + (int) (Math.cos(angle) * depth * 10.0);
         int y2 = y1 + (int) (Math.sin(angle) * depth * 10.0);
         g.drawLine(x1, y1, x2, y2);
+        double ANGLE_STEP = Math.PI / 6;
         drawTree(g, x2, y2, angle - ANGLE_STEP, depth - 1);
         drawTree(g, x2, y2, angle + ANGLE_STEP, depth - 1);
     }
