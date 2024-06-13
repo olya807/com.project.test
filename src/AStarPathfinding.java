@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class AStarPathfinding {
@@ -15,16 +16,16 @@ public class AStarPathfinding {
     }
 
     // Параметры лабиринта
-    private Cell[][] grid;
-    private PriorityQueue<Cell> openCells;
-    private boolean[][] closedCells;
+    private final Cell[][] grid;
+    private final PriorityQueue<Cell> openCells;
+    private final boolean[][] closedCells;
     private int startI, startJ;
     private int endI, endJ;
 
     public AStarPathfinding(int width, int height, int si, int sj, int ei, int ej, int[][] blocks) {
         grid = new Cell[width][height];
         closedCells = new boolean[width][height];
-        openCells = new PriorityQueue<>((Cell c1, Cell c2) -> Integer.compare(c1.finalCost, c2.finalCost));
+        openCells = new PriorityQueue<>(Comparator.comparingInt((Cell c) -> c.finalCost));
         startCell(si, sj);
         endCell(ei, ej);
 
@@ -38,8 +39,8 @@ public class AStarPathfinding {
         grid[startI][startJ].finalCost = 0;
 
         // Устанавливаем блоки в лабиринте
-        for (int i = 0; i < blocks.length; ++i) {
-            addBlockOnCell(blocks[i][0], blocks[i][1]);
+        for (int[] block : blocks) {
+            addBlockOnCell(block[0], block[1]);
         }
     }
 
