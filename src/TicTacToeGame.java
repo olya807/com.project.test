@@ -4,7 +4,7 @@ public class TicTacToeGame {
     private static final char EMPTY = ' ';
     private static final char CROSS = 'X';
     private static final char NOUGHT = 'O';
-    private char[][] board;
+    private final char[][] board;
     private char currentPlayerMark;
     private boolean gameEnded;
 
