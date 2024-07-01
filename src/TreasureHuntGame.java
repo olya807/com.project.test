@@ -10,13 +10,17 @@ public class TreasureHuntGame {
     private static final char TREASURE = 'T';
     private static final char TRAP = 'X';
 
-    private char[][] grid = new char[GRID_SIZE][GRID_SIZE];
+    private final char[][] grid = new char[GRID_SIZE][GRID_SIZE];
     private int playerX = 0;
     private int playerY = 0;
     private int treasuresCollected = 0;
 
+    public TreasureHuntGame() {
+    }
+
     public static void main(String[] args) {
-        TreasureHuntGame game = new TreasureHuntGame();
+        TreasureHuntGame game;
+        game = new TreasureHuntGame();
         game.setupGrid();
         game.placeTreasuresAndTraps();
         game.startGame();
