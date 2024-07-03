@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class MorningRoutinePlanner {
 
+    public MorningRoutinePlanner() {
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -54,6 +57,7 @@ public class MorningRoutinePlanner {
         }
 
         System.out.println("4. Занимайтесь следующими активностями, которые заряжают вас энергией: " + energizingActivities + ".");
+        assert (wantsChange.equalsIgnoreCase("да") ? newHabits : "нет") != null;
         System.out.println("5. Если есть новые привычки, которые вы хотите добавить, уделите им время: " + (wantsChange.equalsIgnoreCase("да") ? newHabits : "нет").toLowerCase() + ".");
         System.out.println("6. Пересмотрите свои задачи и цели на день: " + dailyGoals + ".");
 
