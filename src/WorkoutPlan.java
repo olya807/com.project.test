@@ -1,5 +1,8 @@
 public class WorkoutPlan {
 
+    public WorkoutPlan() {
+    }
+
     public static void main(String[] args) {
         String[] days = {
                 "День 1: Грудь и трицепсы",
