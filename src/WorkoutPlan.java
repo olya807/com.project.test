@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class WorkoutPlan {
 
     public WorkoutPlan() {
@@ -60,12 +62,19 @@ public class WorkoutPlan {
                 }
         };
 
-        for (int i = 0; i < days.length; i++) {
-            System.out.println(days[i]);
-            for (int j = 0; j < exercises[i].length; j++) {
-                System.out.println(" - " + exercises[i][j]);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите номер дня (1-7): ");
+        int day = scanner.nextInt();
+
+        if (day < 1 || day > 7) {
+            System.out.println("Неверный номер дня. Введите число от 1 до 7.");
+        } else {
+            System.out.println(days[day - 1]);
+            for (String exercise : exercises[day - 1]) {
+                System.out.println(" - " + exercise);
             }
-            System.out.println();
         }
+
+        scanner.close();
     }
 }
