@@ -63,15 +63,24 @@ public class WorkoutPlan {
         };
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите номер дня (1-7): ");
-        int day = scanner.nextInt();
-
-        if (day < 1 || day > 7) {
-            System.out.println("Неверный номер дня. Введите число от 1 до 7.");
-        } else {
-            System.out.println(days[day - 1]);
-            for (String exercise : exercises[day - 1]) {
-                System.out.println(" - " + exercise);
+        while (true) {
+            System.out.print("Введите номер дня (1-7) или 0 для выхода: ");
+            try {
+                int day = Integer.parseInt(scanner.nextLine());
+                if (day == 0) {
+                    System.out.println("Выход из программы.");
+                    break;
+                }
+                if (day < 1 || day > 7) {
+                    System.out.println("Неверный номер дня. Введите число от 1 до 7.");
+                } else {
+                    System.out.println(days[day - 1]);
+                    for (String exercise : exercises[day - 1]) {
+                        System.out.println(" - " + exercise);
+                    }
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный ввод. Пожалуйста, введите числовое значение.");
             }
         }
 
