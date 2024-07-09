@@ -1,7 +1,9 @@
+import java.util.Scanner;
+
 public class RelaxingDayPlan {
 
     public RelaxingDayPlan() {
-
+        
     }
 
     public static void main(String[] args) {
@@ -26,34 +28,31 @@ public class RelaxingDayPlan {
                 "21:00 - 22:00: Тишина и уединение"
         };
 
-        String[] additionalTips = {
-                "Постарайся избегать стресса и отвлекающих факторов.",
-                "Слушай музыку, которая тебе нравится, на протяжении всего дня.",
-                "Время от времени делай перерывы, чтобы прислушаться к своим ощущениям и нуждам."
-        };
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите время дня (утро, день, вечер):");
+        String timeOfDay = scanner.nextLine().trim().toLowerCase();
 
-        System.out.println("План на расслабляющий день:");
-        System.out.println("\nУтро:");
-        for (String activity : morningActivities) {
-            System.out.println(activity);
+        System.out.println("\nРекомендации для " + timeOfDay + ":");
+        switch (timeOfDay) {
+            case "утро":
+                for (String activity : morningActivities) {
+                    System.out.println(activity);
+                }
+                break;
+            case "день":
+                for (String activity : dayActivities) {
+                    System.out.println(activity);
+                }
+                break;
+            case "вечер":
+                for (String activity : eveningActivities) {
+                    System.out.println(activity);
+                }
+                break;
+            default:
+                System.out.println("Некорректное время дня. Пожалуйста, введите одно из следующих: утро, день, вечер.");
         }
 
-        System.out.println("\nДень:");
-        for (String activity : dayActivities) {
-            System.out.println(activity);
-        }
-
-        System.out.println("\nВечер:");
-        for (String activity : eveningActivities) {
-            System.out.println(activity);
-        }
-
-        System.out.println("\nЗавершение:");
-        System.out.println("Прими расслабляющий душ или ванну перед сном, чтобы помочь своему телу и уму полностью расслабиться и подготовиться ко сну.");
-
-        System.out.println("\nДополнительные советы:");
-        for (String tip : additionalTips) {
-            System.out.println(tip);
-        }
+        scanner.close();
     }
 }
