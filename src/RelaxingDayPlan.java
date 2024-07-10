@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class RelaxingDayPlan {
 
     public RelaxingDayPlan() {
-        
+
     }
 
     public static void main(String[] args) {
