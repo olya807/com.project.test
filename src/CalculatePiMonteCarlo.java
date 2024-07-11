@@ -1,7 +1,7 @@
 public class CalculatePiMonteCarlo {
 
     public CalculatePiMonteCarlo() {
-        
+
     }
 
     public static void main(String[] args) {
